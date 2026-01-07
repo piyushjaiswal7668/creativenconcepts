@@ -5,7 +5,7 @@ namespace App\Filament\Resources\CompanySettings;
 use App\Filament\Resources\CompanySettings\Pages\EditCompanySetting;
 use App\Filament\Resources\Concerns\ChecksPermissions;
 use App\Models\CompanySetting;
-use Filament\Forms\Components\KeyValue;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -34,7 +34,14 @@ class CompanySettingResource extends Resource
             TextInput::make('email')->email()->maxLength(255),
             TextInput::make('whatsapp')->maxLength(50),
             TextInput::make('google_maps')->label('Google Maps Location')->maxLength(255),
-            KeyValue::make('social_links_json')->label('Social Links'),
+            Repeater::make('social_links_json')
+                ->label('Social Links')
+                ->schema([
+                    TextInput::make('platform')->required()->maxLength(50),
+                    TextInput::make('url')->required()->maxLength(255),
+                ])
+                ->defaultItems(0)
+                ->columnSpanFull(),
             Toggle::make('is_active'),
         ]);
     }
@@ -44,5 +51,16 @@ class CompanySettingResource extends Resource
         return [
             'edit' => EditCompanySetting::route('/'),
         ];
+    }
+
+    public static function getIndexUrl(
+        array $parameters = [],
+        bool $isAbsolute = true,
+        ?string $panel = null,
+        ?\Illuminate\Database\Eloquent\Model $tenant = null,
+        bool $shouldGuessMissingParameters = false
+    ): string
+    {
+        return static::getUrl('edit', ['record' => 1], $isAbsolute, $panel, $tenant, $shouldGuessMissingParameters);
     }
 }
