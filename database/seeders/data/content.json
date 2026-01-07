@@ -1,0 +1,302 @@
+{
+    "company_settings": {
+        "logo": null,
+        "address": "Shed No. 9, Ramaraju Garden, Ganapathipura Kanakapura Road, Bengaluru, Karnataka, 560062",
+        "mobile": "+91 98765 43210",
+        "email": "hello@creativenconcepts.com",
+        "whatsapp": null,
+        "google_map_url": "https://maps.app.goo.gl/WiJMbY3sb62xtn4x8",
+        "social_links": [
+            {
+                "platform": "facebook",
+                "url": "#"
+            },
+            {
+                "platform": "instagram",
+                "url": "#"
+            },
+            {
+                "platform": "linkedin",
+                "url": "#"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "title": "Hdfc Bank",
+            "slug": "commercial-hdfc-bank",
+            "category": "Commercial",
+            "sub_category": "Hdfc Bank",
+            "location": "Commercial",
+            "year": "2024",
+            "description": "Hdfc Bank completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/commercial/hdfc-bank/1.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/2.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/3.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/4.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/5.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/6.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/7.jpeg",
+                "src/assets/images/projects/commercial/hdfc-bank/8.jpeg"
+            ],
+            "order": 1,
+            "status": true
+        },
+        {
+            "title": "Sangeetha Mobile",
+            "slug": "commercial-sangeetha-mobile",
+            "category": "Commercial",
+            "sub_category": "Sangeetha Mobile",
+            "location": "Commercial",
+            "year": "2024",
+            "description": "Sangeetha Mobile completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/commercial/sangeetha-mobile/1.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/10.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/11.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/12.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/13.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/14.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/15.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/2.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/3.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/4.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/5.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/6.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/7.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/8.jpeg",
+                "src/assets/images/projects/commercial/sangeetha-mobile/9.jpeg"
+            ],
+            "order": 9,
+            "status": true
+        },
+        {
+            "title": "Hospital",
+            "slug": "healthcare-hospital",
+            "category": "Healthcare",
+            "sub_category": "Hospital",
+            "location": "Healthcare",
+            "year": "2024",
+            "description": "Hospital completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/healthcare/hospital/1.jpeg",
+                "src/assets/images/projects/healthcare/hospital/2.jpeg",
+                "src/assets/images/projects/healthcare/hospital/3.jpeg",
+                "src/assets/images/projects/healthcare/hospital/4.jpeg",
+                "src/assets/images/projects/healthcare/hospital/5.jpeg",
+                "src/assets/images/projects/healthcare/hospital/6.jpeg"
+            ],
+            "order": 24,
+            "status": true
+        },
+        {
+            "title": "Museum",
+            "slug": "institutional-museum",
+            "category": "Institutional",
+            "sub_category": "Museum",
+            "location": "Institutional",
+            "year": "2024",
+            "description": "Museum completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/institutional/museum/1.jpeg",
+                "src/assets/images/projects/institutional/museum/10.jpeg",
+                "src/assets/images/projects/institutional/museum/2.jpeg",
+                "src/assets/images/projects/institutional/museum/3.jpeg",
+                "src/assets/images/projects/institutional/museum/4.jpeg",
+                "src/assets/images/projects/institutional/museum/5.jpeg",
+                "src/assets/images/projects/institutional/museum/6.jpeg",
+                "src/assets/images/projects/institutional/museum/7.jpeg",
+                "src/assets/images/projects/institutional/museum/8.jpeg",
+                "src/assets/images/projects/institutional/museum/9.jpeg"
+            ],
+            "order": 30,
+            "status": true
+        },
+        {
+            "title": "Office School College",
+            "slug": "institutional-office-school-college",
+            "category": "Institutional",
+            "sub_category": "Office School College",
+            "location": "Institutional",
+            "year": "2024",
+            "description": "Office School College completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/institutional/office-school-college/1.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/10.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/11.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/12.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/13.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/2.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/3.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/4.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/5.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/6.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/7.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/8.jpeg",
+                "src/assets/images/projects/institutional/office-school-college/9.jpeg"
+            ],
+            "order": 40,
+            "status": true
+        },
+        {
+            "title": "Residential Project",
+            "slug": "residential-residential-project",
+            "category": "Residential",
+            "sub_category": "Residential Project",
+            "location": "Residential",
+            "year": "2024",
+            "description": "Residential Project completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/residential/1.jpeg",
+                "src/assets/images/projects/residential/10.jpeg",
+                "src/assets/images/projects/residential/11.jpeg",
+                "src/assets/images/projects/residential/12.jpeg",
+                "src/assets/images/projects/residential/13.jpeg",
+                "src/assets/images/projects/residential/14.jpeg",
+                "src/assets/images/projects/residential/15.jpeg",
+                "src/assets/images/projects/residential/16.jpeg",
+                "src/assets/images/projects/residential/17.jpeg",
+                "src/assets/images/projects/residential/18.jpeg",
+                "src/assets/images/projects/residential/19.jpeg",
+                "src/assets/images/projects/residential/2.jpeg",
+                "src/assets/images/projects/residential/20.jpeg",
+                "src/assets/images/projects/residential/21.jpeg",
+                "src/assets/images/projects/residential/22.jpeg",
+                "src/assets/images/projects/residential/23.jpeg",
+                "src/assets/images/projects/residential/24.jpeg",
+                "src/assets/images/projects/residential/25.jpeg",
+                "src/assets/images/projects/residential/26.jpeg",
+                "src/assets/images/projects/residential/27.jpeg",
+                "src/assets/images/projects/residential/28.jpeg",
+                "src/assets/images/projects/residential/29.jpeg",
+                "src/assets/images/projects/residential/3.jpeg",
+                "src/assets/images/projects/residential/30.jpeg",
+                "src/assets/images/projects/residential/31.jpeg",
+                "src/assets/images/projects/residential/32.jpeg",
+                "src/assets/images/projects/residential/33.jpeg",
+                "src/assets/images/projects/residential/34.jpeg",
+                "src/assets/images/projects/residential/35.jpeg",
+                "src/assets/images/projects/residential/36.jpeg",
+                "src/assets/images/projects/residential/37.jpeg",
+                "src/assets/images/projects/residential/38.jpeg",
+                "src/assets/images/projects/residential/39.jpeg",
+                "src/assets/images/projects/residential/4.jpeg",
+                "src/assets/images/projects/residential/40.jpeg",
+                "src/assets/images/projects/residential/5.jpeg",
+                "src/assets/images/projects/residential/6.jpeg",
+                "src/assets/images/projects/residential/7.jpeg",
+                "src/assets/images/projects/residential/8.jpeg",
+                "src/assets/images/projects/residential/9.jpeg"
+            ],
+            "order": 53,
+            "status": true
+        },
+        {
+            "title": "Retail Project",
+            "slug": "retail-retail-project",
+            "category": "Retail",
+            "sub_category": "Retail Project",
+            "location": "Retail",
+            "year": "2024",
+            "description": "Retail Project completed with attention to detail.",
+            "images": [
+                "src/assets/images/projects/retail/1.jpeg",
+                "src/assets/images/projects/retail/2.jpeg",
+                "src/assets/images/projects/retail/3.jpeg",
+                "src/assets/images/projects/retail/4.jpeg",
+                "src/assets/images/projects/retail/5.jpeg",
+                "src/assets/images/projects/retail/6.jpeg",
+                "src/assets/images/projects/retail/7.jpeg",
+                "src/assets/images/projects/retail/8.jpeg",
+                "src/assets/images/projects/retail/9.jpeg"
+            ],
+            "order": 93,
+            "status": true
+        }
+    ],
+    "team_members": [
+        {
+            "name": "Mr. Naveen Kumar VP",
+            "role": "Company Owner",
+            "bio": null,
+            "photo": "",
+            "order": 1,
+            "status": true
+        },
+        {
+            "name": "Mr. Anand Reddy",
+            "role": "Manager",
+            "bio": null,
+            "photo": "https://i.pravatar.cc/500?u=megha",
+            "order": 2,
+            "status": true
+        },
+        {
+            "name": "Mr. Raghu Kumar",
+            "role": "Production Manager",
+            "bio": null,
+            "photo": "https://i.pravatar.cc/500?u=rohan",
+            "order": 3,
+            "status": true
+        },
+        {
+            "name": "Mr. Anuj Rao",
+            "role": "Senior Interior Designer",
+            "bio": null,
+            "photo": "https://i.pravatar.cc/500?u=elena",
+            "order": 4,
+            "status": true
+        }
+    ],
+    "testimonials": [
+        {
+            "name": "Ananya Sharma",
+            "role": "Homeowner",
+            "content": "CreativeNconcepts transformed our apartment into a sanctuary. Their attention to detail in the modular kitchen is unparalleled.",
+            "rating":5,
+            "avatar": "https://i.pravatar.cc/150?u=ananya",
+            "order": 1,
+            "status": true
+        },
+        {
+            "name": "Vikram Mehta",
+            "role": "CEO, TechFlow",
+            "content": "The team handled our office interior with extreme professionalism. The flow of space they designed has significantly boosted team morale.",
+            "rating":5,
+            "avatar": "https://i.pravatar.cc/150?u=vikram",
+            "order": 2,
+            "status": true
+        },
+        {
+            "name": "Sarah Johnson",
+            "role": "Boutique Owner",
+            "content": "They truly understood my brand vision. The retail store looks phenomenal and my customers love the ambiance.",
+            "rating":5,
+            "avatar": "https://i.pravatar.cc/150?u=sarah",
+            "order": 3,
+            "status": true
+        }
+    ],
+    "fallbacks": {
+        "company_settings": {
+            "address": "",
+            "mobile": "",
+            "email": ""
+        },
+        "projects": [],
+        "team_members": [],
+        "testimonials": []
+    },
+    "_meta": {
+        "projects_before": 101,
+        "projects_after": 7,
+        "categories": [
+            "Commercial",
+            "Residential",
+            "Healthcare",
+            "Institutional",
+            "Retail"
+        ]
+    }
+}
