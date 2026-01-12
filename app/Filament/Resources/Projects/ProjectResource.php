@@ -33,6 +33,8 @@ class ProjectResource extends Resource
         return $schema->schema([
             TextInput::make('title')->required()->maxLength(255),
             TextInput::make('slug')->required()->maxLength(255),
+            TextInput::make('category')->maxLength(255),
+            TextInput::make('sub_category')->label('Sub Category')->maxLength(255),
             TextInput::make('location')->maxLength(255),
             TextInput::make('year')->maxLength(10),
             Textarea::make('description')->columnSpanFull(),
@@ -51,6 +53,8 @@ class ProjectResource extends Resource
             ->columns([
                 SpatieMediaLibraryImageColumn::make('gallery')->collection('gallery'),
                 TextColumn::make('title')->searchable(),
+                TextColumn::make('category')->searchable(),
+                TextColumn::make('sub_category')->label('Sub Category')->searchable(),
                 TextColumn::make('location')->searchable(),
                 TextColumn::make('year')->sortable(),
                 TextColumn::make('sort_order')->sortable(),

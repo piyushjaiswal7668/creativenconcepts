@@ -21,7 +21,7 @@ class TeamService
                 'bio' => $member->bio ?: '',
                 'order' => $member->sort_order,
                 'status' => $member->is_active,
-                'photo' => $member->getFirstMediaUrl('photo') ?: '',
+                'photo'  => $member->getFirstMediaUrl('photo')? url($member->getFirstMediaUrl('photo')) : '',
             ])->all(),
         ];
     }
