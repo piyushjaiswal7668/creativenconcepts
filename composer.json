@@ -9,11 +9,13 @@
         "php": "^8.2",
         "bezhansalleh/filament-shield": "^4.0",
         "filament/filament": "^4.0",
+        "filament/spatie-laravel-media-library-plugin": "^4.0",
         "laravel/framework": "^12.0",
+        "laravel/reverb": "^1.10",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10.1",
+        "munafio/chatify": "^1.6",
         "spatie/laravel-activitylog": "^4.10",
-        "filament/spatie-laravel-media-library-plugin": "^4.0",
         "spatie/laravel-permission": "^6.24"
     },
     "require-dev": {
