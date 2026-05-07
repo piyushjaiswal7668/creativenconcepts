@@ -48,3 +48,10 @@ Route::get('/run-queue', function () {
 
 Route::post('/contact/submit', [ContactSubmissionController::class, 'store'])
     ->middleware('throttle:10,1');
+
+// One-time cleanup: trim whitespace/tab from corrupted avatar values in DB
+Route::get('/fix-avatars', function () {
+    $fixed = \App\Models\User::whereRaw("avatar != TRIM(avatar)")->get()
+        ->each(fn ($u) => $u->update(['avatar' => trim($u->avatar)]));
+    return 'Fixed ' . $fixed->count() . ' avatar(s).';
+});

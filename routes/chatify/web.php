@@ -96,6 +96,11 @@ Route::post('/updateSettings', 'MessagesController@updateSettings')->name('avata
  */
 Route::post('/setActiveStatus', 'MessagesController@setActiveStatus')->name('activeStatus.set');
 
+/**
+ * Fetch a user's name by ID — lightweight endpoint for notification fallback on mobile
+ */
+Route::get('/user-name/{id}', 'MessagesController@userName')->name('user.name');
+
 
 
 

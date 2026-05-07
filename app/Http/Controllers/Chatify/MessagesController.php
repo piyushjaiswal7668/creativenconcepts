@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 
 class MessagesController extends BaseMessagesController
 {
@@ -56,6 +57,75 @@ class MessagesController extends BaseMessagesController
             'total'    => $users->total() ?? 0,
             'last_page' => $users->lastPage() ?? 1,
         ], 200);
+    }
+
+    /**
+     * Override to trim avatar path before Flysystem sees it.
+     * Some rows in the DB were stored with a trailing tab character.
+     */
+    public function updateSettings(Request $request)
+    {
+        $msg = null;
+        $error = $success = 0;
+
+        if ($request['dark_mode']) {
+            $request['dark_mode'] == 'dark'
+                ? User::where('id', Auth::id())->update(['dark_mode' => 1])
+                : User::where('id', Auth::id())->update(['dark_mode' => 0]);
+        }
+
+        if ($request['messengerColor']) {
+            User::where('id', Auth::id())
+                ->update(['messenger_color' => trim(filter_var($request['messengerColor']))]);
+        }
+
+        if ($request->hasFile('avatar')) {
+            $allowed_images = Chatify::getAllowedImages();
+            $file = $request->file('avatar');
+
+            if ($file->getSize() < Chatify::getMaxUploadSize()) {
+                if (in_array(strtolower($file->extension()), $allowed_images)) {
+                    $currentAvatar = trim(Auth::user()->avatar ?? '');
+
+                    // Persist the cleaned value in case it was corrupted
+                    if ($currentAvatar !== (Auth::user()->avatar ?? '')) {
+                        User::where('id', Auth::id())->update(['avatar' => $currentAvatar]);
+                    }
+
+                    if ($currentAvatar !== config('chatify.user_avatar.default')) {
+                        if (Chatify::storage()->exists($currentAvatar)) {
+                            Chatify::storage()->delete($currentAvatar);
+                        }
+                    }
+
+                    $avatar = Str::uuid() . '.' . $file->extension();
+                    $update = User::where('id', Auth::id())->update(['avatar' => $avatar]);
+                    $file->storeAs(config('chatify.user_avatar.folder'), $avatar, config('chatify.storage_disk_name'));
+                    $success = $update ? 1 : 0;
+                } else {
+                    $msg   = 'File extension not allowed!';
+                    $error = 1;
+                }
+            } else {
+                $msg   = 'File size you are trying to upload is too large!';
+                $error = 1;
+            }
+        }
+
+        return Response::json([
+            'status'  => $success ? 1 : 0,
+            'error'   => $error   ? 1 : 0,
+            'message' => $error   ? $msg : 0,
+        ], 200);
+    }
+
+    /**
+     * Return just the name of a user by ID — used by the notification fallback on mobile.
+     */
+    public function userName(Request $request, $id)
+    {
+        $user = User::select('id', 'name')->find($id);
+        return Response::json(['name' => $user?->name ?? '']);
     }
 
     /**

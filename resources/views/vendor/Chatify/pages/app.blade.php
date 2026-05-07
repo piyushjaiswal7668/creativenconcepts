@@ -10,6 +10,9 @@
                 <nav class="m-header-right">
                     <a href="#"><i class="fas fa-cog settings-btn"></i></a>
                     <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
+                    <button id="push-bell-btn" onclick="enablePushNotifications()" title="Enable notifications">
+                        <i class="fas fa-bell"></i>
+                    </button>
                     <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                         @csrf
                         <button type="submit" title="Logout" style="background:none;border:none;cursor:pointer;color:inherit;padding:0 6px;">

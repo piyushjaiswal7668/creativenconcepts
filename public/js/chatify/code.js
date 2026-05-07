@@ -22,6 +22,9 @@ const messagesContainer = $(".messenger-messagingView .m-body"),
   defaultMessengerColor = $("meta[name=messenger-color]").attr("content"),
   csrfToken = $('meta[name="csrf-token"]').attr("content");
 
+// Cache of userId → name built as contacts load, used for notifications
+window._chatUserNames = {};
+
 const getMessengerId = () => $("meta[name=id]").attr("content");
 const setMessengerId = (id) => $("meta[name=id]").attr("content", id);
 
@@ -649,6 +652,30 @@ channel.bind("messaging", function (data) {
     "new_message",
     !(data.from_id == getMessengerId() && data.to_id == auth_id)
   );
+
+  if (data.from_id != auth_id && data.to_id == auth_id && typeof window.showChatNotification === 'function') {
+    const msgEl = $('<div>').html(data.message).find('.message');
+    msgEl.find('.message-time, .message-file, img, video').remove();
+    const rawText = msgEl.text().trim();
+    const chatUrl = window.location.origin + '/chatify/' + data.from_id;
+
+    // Try DOM first, then cache, then fetch from server (mobile fallback)
+    const nameEl = $('.messenger-list-item[data-contact="' + data.from_id + '"]').find('p[data-id]').clone();
+    nameEl.children().remove();
+    const domName = nameEl.text().trim();
+
+    if (domName || window._chatUserNames[data.from_id]) {
+      window.showChatNotification(domName || window._chatUserNames[data.from_id], rawText || 'Sent you a message', chatUrl);
+    } else {
+      $.getJSON(url + '/user-name/' + data.from_id, function (res) {
+        const name = res.name || 'New Message';
+        window._chatUserNames[data.from_id] = name;
+        window.showChatNotification(name, rawText || 'Sent you a message', chatUrl);
+      }).fail(function () {
+        window.showChatNotification('New Message', rawText || 'Sent you a message', chatUrl);
+      });
+    }
+  }
 });
 
 // listen to typing indicator
@@ -879,6 +906,14 @@ function getContacts() {
         } else {
           $(".listOfContacts").append(data.contacts);
         }
+        // Cache user names for notifications
+        $(".listOfContacts .messenger-list-item").each(function () {
+          const id = $(this).attr("data-contact");
+          const nameEl = $(this).find("p[data-id]").clone();
+          nameEl.children().remove();
+          const name = nameEl.text().trim();
+          if (id && name) window._chatUserNames[id] = name;
+        });
         updateSelectedContact();
         // update data-action required with [responsive design]
         cssMediaQueries();
