@@ -37,6 +37,35 @@
     }
 </style>
 
+{{-- Mobile keyboard fix: messaging view must shrink when keyboard opens --}}
+<style>
+@media (max-width: 680px) {
+    .messenger-messagingView {
+        /* dvh = dynamic viewport height, shrinks when keyboard appears */
+        height: 100dvh !important;
+        height: 100vh !important; /* fallback for older browsers */
+        height: 100dvh !important;
+    }
+    .messenger-messagingView .m-body {
+        /* let the messages area fill whatever space is left between header and send form */
+        flex: 1 1 0%;
+        min-height: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .messenger-messagingView {
+        display: flex;
+        flex-direction: column;
+    }
+    .messenger-messagingView .m-header-messaging {
+        flex-shrink: 0;
+    }
+    .messenger-sendCard {
+        flex-shrink: 0;
+    }
+}
+</style>
+
 {{-- Browser Notifications --}}
 <style>
 #push-bell-btn {
@@ -120,4 +149,28 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+</script>
+
+{{-- Mobile keyboard: resize messaging view using Visual Viewport API --}}
+<script>
+(function () {
+    if (!window.visualViewport) return;
+
+    var msgView = null;
+
+    function onViewportResize() {
+        if (!msgView) msgView = document.querySelector('.messenger-messagingView');
+        if (!msgView) return;
+        // Only apply on narrow screens (mobile layout)
+        if (window.innerWidth > 680) { msgView.style.height = ''; return; }
+        var h = window.visualViewport.height;
+        msgView.style.height = h + 'px';
+        // Scroll messages to bottom after keyboard opens
+        var body = msgView.querySelector('.m-body');
+        if (body) body.scrollTop = body.scrollHeight;
+    }
+
+    window.visualViewport.addEventListener('resize', onViewportResize);
+    window.visualViewport.addEventListener('scroll', onViewportResize);
+})();
 </script>
